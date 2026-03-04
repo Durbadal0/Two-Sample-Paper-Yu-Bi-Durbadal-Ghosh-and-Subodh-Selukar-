@@ -28,20 +28,5 @@ source("02_supplement_scenarios.R")
 source("03_beacon_analysis.R")
 ```
 
-## Uploading to GitHub
 
-1. Create a new repository on GitHub (https://github.com/new).
 
-2. Initialize the local repo, add files, and push:
-
-```bash
-cd "/path/to/this/directory"
-git init
-git add 01_numerical_results.R 02_supplement_scenarios.R 03_beacon_analysis.R ipd_pfs_jco.csv README.md
-git commit -m "Initial commit: replication code for two-sample tests with long-term survivors"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` and `YOUR_REPO_NAME` with your GitHub username and repository name.
