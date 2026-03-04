@@ -420,38 +420,3 @@ p_surv <- ggplot() +
 ggsave("figure_S1_survival.pdf", p_surv, width = 7, height = 5)
 cat("Saved: figure_S1_survival.pdf\n")
 
-################################################################################
-# Summary
-################################################################################
-
-cat("\n")
-cat("================================================================\n")
-cat("SUMMARY FOR MANUSCRIPT\n")
-cat("================================================================\n")
-
-cat("\n[RECeUS-AIC Results]\n")
-cat("  dB arm:\n")
-cat("    Best model:", dist_names[dB_fits$best_idx],
-    "(AIC =", round(dB_fits$results$AIC[dB_fits$best_idx], 2), ")\n")
-cat("    pi_n =", round(dB_fits$pi_n, 3),
-    ", r_n =", round(dB_fits$r_n, 3),
-    ", Cure appropriate:", dB_fits$cure_ok, "\n")
-cat("  No dB arm:\n")
-cat("    Best model:", dist_names[nodB_fits$best_idx],
-    "(AIC =", round(nodB_fits$results$AIC[nodB_fits$best_idx], 2), ")\n")
-cat("    pi_n =", round(nodB_fits$pi_n, 3),
-    ", r_n =", round(nodB_fits$r_n, 3),
-    ", Cure appropriate:", nodB_fits$cure_ok, "\n")
-
-cat("\n[Fitted Survival Functions]\n")
-cat("  dB arm (", dist_names[dB_fits$best_idx], " mixture cure):\n")
-cat("    S(t) = ", round(dB_fits$pi_n, 3), " + (1 - ", round(dB_fits$pi_n, 3),
-    ") * S_LN(t)\n", sep = "")
-cat("  No dB arm (", dist_names[nodB_fits$best_idx], " mixture cure):\n")
-cat("    S(t) = ", round(nodB_fits$pi_n, 3), " + (1 - ", round(nodB_fits$pi_n, 3),
-    ") * S_W(t)\n", sep = "")
-
-cat("\n================================================================\n")
-
-# Close the sink
-sink()
