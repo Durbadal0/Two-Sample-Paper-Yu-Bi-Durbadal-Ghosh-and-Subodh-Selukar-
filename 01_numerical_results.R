@@ -196,23 +196,5 @@ ggsave("figure_weighted_diff_threecurves_marked.png", fig5, width = 10, height =
 cat("Saved: figure_weighted_diff_threecurves_marked.pdf\n")
 cat("Saved: figure_weighted_diff_threecurves_marked.png\n")
 
-################################################################################
-# Verification summary
-################################################################################
 
-cat("\n=== Verification Summary ===\n")
-cat("Scenario A (solid, no cure):\n")
-cat("  A(tau) at 50th pct:", round(A_scA[pct_grid == 50], 6), "\n")
-cat("  A(tau) at 90th pct:", round(A_scA[pct_grid == 90], 6), "\n")
-cat("  Monotone decreasing?", all(diff(A_scA[pct_grid >= 5]) <= 1e-10), "\n\n")
 
-cat("Scenario B (dashed, cure in treatment only):\n")
-cat("  A(tau) at 50th pct:", round(A_scB[pct_grid == 50], 6), "\n")
-cat("  A(tau) at 90th pct:", round(A_scB[pct_grid == 90], 6), "\n")
-cat("  Monotone decreasing?", all(diff(A_scB[pct_grid >= 5]) <= 1e-10), "\n\n")
-
-cat("Scenario C (dotted, cure in both, OR = 1.5):\n")
-cat("  A(tau) at 50th pct:", round(A_scC[pct_grid == 50], 6), "\n")
-cat("  A(tau) at 90th pct:", round(A_scC[pct_grid == 90], 6), "\n")
-cat("  tau* percentile:", tau_star_pct, "\n")
-cat("  Non-monotone?", !all(diff(A_scC[pct_grid >= 5]) <= 1e-10), "\n")
